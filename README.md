@@ -1,5 +1,15 @@
 # Farm-Manager
-O Farm Manager é um site desenvolvido para o gerenciamento completo de uma fazenda urbana. Este sistema facilita o controle de fornecedores, vendas, produção e desempenho por meio de uma interface intuitiva e recursos abrangentes.
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
+O Farm Manager é um site desenvolvido para o gerenciamento completo de uma fazenda urbana. Este sistema facilita o controle de fornecedores, vendas, produção e desempenho por meio de uma interface intuitiva e recursos abrangentes. 
+## Demonstração
+![Screenshot1](https://i.postimg.cc/3wXTzPR5/imagem-2024-11-29-135603417.png)
+![Screenshot2](https://i.postimg.cc/MKgJHWfJ/imagem-2024-11-29-135718519.png)
+![Screenshot3](https://i.postimg.cc/HnKRr2x9/imagem-2024-11-29-135825461.png)
+![Screenshot4](https://i.postimg.cc/V6ZHhRjP/imagem-2024-11-29-140031743.png)
+![Screenshot5](https://i.postimg.cc/pLMc3ynr/imagem-2024-11-29-140114102.png)
+![Screenshot6](https://i.postimg.cc/FKDPfZCk/imagem-2024-11-29-140150051.png)
 
 Funcionalidades
 Tela de Login e Cadastro
