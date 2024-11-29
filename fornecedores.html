@@ -23,21 +23,23 @@
 
     <main>
         <section>
+            <h2>Fornecedores Ativos</h2>
             <div id="fornecedoresList" class="fornecedor-cards">
-                <h2 class="title">Fornecedores Ativos</h2>
                 <!-- Fornecedores adicionados serão carregados aqui -->
             </div>
         </section>
 
         <section>
-        </br>
-        </br>
-        </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
             <h2>Adicionar Fornecedor</h2>
-            <form onsubmit="addFornecedor(); return false;">
-                <input type="text" id="fornecedorName" placeholder="Nome do Fornecedor">
-                <input type="text" id="fornecedorContact" placeholder="Contato">
-                <input type="text" id="fornecedorProduct" placeholder="Produto">
+            <form id="fornecedorForm">
+                <input type="text" id="fornecedorName" placeholder="Nome do Fornecedor" required>
+                <input type="text" id="fornecedorContact" placeholder="Contato" required>
+                <input type="text" id="fornecedorProduct" placeholder="Produto" required>
                 <button type="submit">Adicionar</button>
             </form>
         </section>
@@ -46,6 +48,5 @@
     <footer>
         <p>&copy; 2024 Farm Manager. Todos os direitos reservados.</p>
     </footer>
-
 </body>
 </html>

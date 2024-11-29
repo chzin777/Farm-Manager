@@ -1,147 +1,92 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Detecta a página atual pelo título
     const pageTitle = document.title;
 
     if (pageTitle.includes('Home')) {
         initializeHomeCharts();
     } else if (pageTitle.includes('Vendas')) {
         initializeSalesCharts();
+        loadVendas();
     } else if (pageTitle.includes('Relatórios')) {
         initializeReportCharts();
         setupExportButtons();
-    }
-
-    // Carrega os fornecedores, se aplicável
-    if (document.getElementById('fornecedoresList')) {
+    } else if (pageTitle.includes('Fornecedores')) {
         loadFornecedores();
+        setupFornecedorForm();
     }
 
-    // Atualiza as barras de progresso, se aplicável
     if (document.querySelectorAll('.progress-bar').length > 0) {
         updateProgressBars();
     }
 });
 
-// Função para inicializar os gráficos na Home
+// Função para inicializar gráficos na Home
 function initializeHomeCharts() {
     const salesPieCanvas = document.getElementById('salesPieChart');
     const productionBarCanvas = document.getElementById('productionBarChart');
 
     if (!salesPieCanvas || !productionBarCanvas) {
-        console.error('Os elementos <canvas> para os gráficos da Home não foram encontrados.');
+        console.error('Elementos <canvas> para gráficos na Home não encontrados.');
         return;
     }
 
-    // Gráfico de Vendas (Pizza)
-    new Chart(salesPieCanvas.getContext('2d'), {
-        type: 'pie',
-        data: {
-            labels: ['Produto A', 'Produto B', 'Produto C'],
-            datasets: [{
-                label: 'Vendas',
-                data: [300, 150, 100],
-                backgroundColor: ['#f97f24', '#f9a224', '#f9c924']
-            }]
-        },
-        options: {
-            responsive: true
-        }
-    });
-
-    // Gráfico de Produção (Barra)
-    new Chart(productionBarCanvas.getContext('2d'), {
-        type: 'bar',
-        data: {
-            labels: ['Produto A', 'Produto B', 'Produto C'],
-            datasets: [{
-                label: 'Produção',
-                data: [500, 200, 300],
-                backgroundColor: ['#36a2eb', '#4bc0c0', '#ff6384']
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+    createPieChart(salesPieCanvas, ['Produto A', 'Produto B', 'Produto C'], [300, 150, 100], ['#f97f24', '#f9a224', '#f9c924']);
+    createBarChart(productionBarCanvas, ['Produto A', 'Produto B', 'Produto C'], [500, 200, 300], ['#36a2eb', '#4bc0c0', '#ff6384']);
 }
 
-// Função para inicializar os gráficos na página de Vendas
+// Função para inicializar gráficos na página de Vendas
 function initializeSalesCharts() {
     const salesPieCanvas = document.getElementById('salesPieChart');
 
     if (!salesPieCanvas) {
-        console.error('O elemento <canvas> para o gráfico de vendas não foi encontrado.');
+        console.error('Elemento <canvas> para gráfico de vendas não encontrado.');
         return;
     }
 
-    // Gráfico de Vendas (Pizza)
-    new Chart(salesPieCanvas.getContext('2d'), {
-        type: 'pie',
-        data: {
-            labels: ['Produto A', 'Produto B', 'Produto C'],
-            datasets: [{
-                label: 'Vendas',
-                data: [300, 150, 100],
-                backgroundColor: ['#f97f24', '#f9a224', '#f9c924']
-            }]
-        },
-        options: {
-            responsive: true
-        }
-    });
+    createPieChart(salesPieCanvas, ['Produto A', 'Produto B', 'Produto C'], [300, 150, 100], ['#f97f24', '#f9a224', '#f9c924']);
 }
 
-// Função para inicializar os gráficos na página de Relatórios
+// Função para inicializar gráficos na página de Relatórios
 function initializeReportCharts() {
     const salesPieCanvas = document.getElementById('salesPieChart');
     const productionBarCanvas = document.getElementById('productionBarChart');
 
     if (salesPieCanvas) {
-        new Chart(salesPieCanvas.getContext('2d'), {
-            type: 'pie',
-            data: {
-                labels: ['Produto A', 'Produto B', 'Produto C'],
-                datasets: [{
-                    label: 'Vendas',
-                    data: [300, 150, 100],
-                    backgroundColor: ['#f97f24', '#f9a224', '#f9c924']
-                }]
-            },
-            options: {
-                responsive: true
-            }
-        });
+        createPieChart(salesPieCanvas, ['Produto A', 'Produto B', 'Produto C'], [300, 150, 100], ['#f97f24', '#f9a224', '#f9c924']);
     }
 
     if (productionBarCanvas) {
-        new Chart(productionBarCanvas.getContext('2d'), {
-            type: 'bar',
-            data: {
-                labels: ['Produto A', 'Produto B', 'Produto C'],
-                datasets: [{
-                    label: 'Produção',
-                    data: [750, 300, 400],
-                    backgroundColor: ['#36a2eb', '#4bc0c0', '#ff6384']
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+        createBarChart(productionBarCanvas, ['Produto A', 'Produto B', 'Produto C'], [750, 300, 400], ['#36a2eb', '#4bc0c0', '#ff6384']);
     }
 }
 
-// Função para configurar os botões de exportação na página de Relatórios
+// Função genérica para criar gráficos de pizza
+function createPieChart(canvas, labels, data, colors) {
+    new Chart(canvas.getContext('2d'), {
+        type: 'pie',
+        data: {
+            labels,
+            datasets: [{ data, backgroundColor: colors }]
+        },
+        options: { responsive: true }
+    });
+}
+
+// Função genérica para criar gráficos de barra
+function createBarChart(canvas, labels, data, colors) {
+    new Chart(canvas.getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels,
+            datasets: [{ label: 'Produção', data, backgroundColor: colors }]
+        },
+        options: {
+            responsive: true,
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+}
+
+// Configurar botões de exportação na página de Relatórios
 function setupExportButtons() {
     document.getElementById('exportExcelButton')?.addEventListener('click', generateExcelReport);
     document.getElementById('exportTextButton')?.addEventListener('click', generateTextReport);
@@ -181,45 +126,94 @@ function generateTextReport() {
     link.click();
 }
 
-// Função para carregar fornecedores do localStorage
+// Função para carregar vendas
+function loadVendas() {
+    const vendasList = document.getElementById('vendasList');
+    if (!vendasList) return;
+
+    vendasList.innerHTML = '';
+    const vendas = JSON.parse(localStorage.getItem('vendas')) || [];
+
+    vendas.forEach(venda => {
+        const vendaCard = document.createElement('div');
+        vendaCard.classList.add('venda-card');
+        vendaCard.innerHTML = `
+            <p><strong>Produto:</strong> ${venda.produto}</p>
+            <p><strong>Quantidade:</strong> ${venda.quantidade}kg</p>
+            <p><strong>Valor Total:</strong> R$ ${venda.valor}</p>
+        `;
+        vendasList.appendChild(vendaCard);
+    });
+}
+
+// Função para carregar fornecedores
 function loadFornecedores() {
     const fornecedoresList = document.getElementById('fornecedoresList');
+    if (!fornecedoresList) return;
 
-    if (!fornecedoresList) {
-        console.error('Elemento fornecedoresList não encontrado.');
+    fornecedoresList.innerHTML = '';
+    const fornecedores = JSON.parse(localStorage.getItem('fornecedores')) || [];
+
+    if (fornecedores.length === 0) {
+        fornecedoresList.innerHTML = '<p>Nenhum fornecedor cadastrado.</p>';
         return;
     }
-
-    fornecedoresList.innerHTML = ''; // Limpa a lista antes de carregar
-    const fornecedores = JSON.parse(localStorage.getItem('fornecedores')) || [];
 
     fornecedores.forEach((fornecedor, index) => {
         const card = document.createElement('div');
         card.className = 'fornecedor-card';
         card.innerHTML = `
-            <img src="https://cdn-icons-png.flaticon.com/512/8847/8847137.png" alt="Fornecedor">
             <h3>${fornecedor.name}</h3>
-            <p>Contato: ${fornecedor.contact}</p>
-            <p>Produto: ${fornecedor.product}</p>
+            <p><strong>Contato:</strong> ${fornecedor.contact}</p>
+            <p><strong>Produto:</strong> ${fornecedor.product}</p>
             <button onclick="removeFornecedor(${index})" class="remove-btn">Remover</button>
         `;
         fornecedoresList.appendChild(card);
     });
 }
 
-// Função para remover um fornecedor
-function removeFornecedor(index) {
-    const fornecedores = JSON.parse(localStorage.getItem('fornecedores')) || [];
-    fornecedores.splice(index, 1); // Remove o fornecedor pelo índice
-    localStorage.setItem('fornecedores', JSON.stringify(fornecedores)); // Atualiza o localStorage
-    loadFornecedores(); // Atualiza a interface
+// Configurar o formulário de fornecedores
+function setupFornecedorForm() {
+    const form = document.getElementById('fornecedorForm');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        addFornecedor();
+    });
 }
 
-// Função para atualizar barras de progresso
+// Adicionar fornecedor ao LocalStorage
+function addFornecedor() {
+    const name = document.getElementById('fornecedorName').value.trim();
+    const contact = document.getElementById('fornecedorContact').value.trim();
+    const product = document.getElementById('fornecedorProduct').value.trim();
+
+    if (!name || !contact || !product) {
+        alert('Preencha todos os campos.');
+        return;
+    }
+
+    const newFornecedor = { name, contact, product };
+    const fornecedores = JSON.parse(localStorage.getItem('fornecedores')) || [];
+    fornecedores.push(newFornecedor);
+
+    localStorage.setItem('fornecedores', JSON.stringify(fornecedores));
+    loadFornecedores();
+    document.getElementById('fornecedorForm').reset();
+}
+
+// Remover fornecedor
+function removeFornecedor(index) {
+    const fornecedores = JSON.parse(localStorage.getItem('fornecedores')) || [];
+    fornecedores.splice(index, 1);
+
+    localStorage.setItem('fornecedores', JSON.stringify(fornecedores));
+    loadFornecedores();
+}
+
+// Atualizar barras de progresso
 function updateProgressBars() {
-    const progressBars = document.querySelectorAll('.progress-bar');
-    progressBars.forEach(bar => {
-        const progress = Math.max(bar.getAttribute('data-progress') || 0, 50); // Progresso mínimo de 50%
+    document.querySelectorAll('.progress-bar').forEach(bar => {
+        const progress = bar.getAttribute('data-progress') || 0;
         bar.style.width = `${progress}%`;
     });
 }
