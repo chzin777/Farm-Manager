@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="cadastro.css">
+  <title>Cadastro Farm Manager</title>
+</head>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form id="registerForm">
+                    <h2>Cadastrar</h2>
+                    <div class="inputbox">
+                        <ion-icon name="user-outline"></ion-icon>
+                        <input type="text" id="newUsername" required>
+                        <label for="newUsername">Usuário</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" id="newPassword" required>
+                        <label for="newPassword">Senha</label>
+                    </div>
+                    <button type="submit">Cadastrar</button>
+                    <div class="register">
+                        <p>Já tem uma conta?<a href="login.html"> Entrar</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const username = document.getElementById('newUsername').value;
+            const password = document.getElementById('newPassword').value;
+
+            // Salva os dados no localStorage
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+
+            alert('Cadastro realizado com sucesso!');
+            window.location.href = 'index.html'; // Redireciona para login
+        });
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

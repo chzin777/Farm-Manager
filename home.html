@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Manager - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Farm Manager</h1>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="fornecedores.html">Painel de Fornecedores</a></li>
+                <li><a href="vendas.html">Painel de Vendas</a></li>
+                <li><a href="producao.html">Painel de Produção</a></li>
+                <li><a href="relatorios.html">Painel de Relatórios</a></li>
+                <li><a href="#" id="logout">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="summary">
+            <h2>Resumo</h2>
+            <div class="charts">
+                <div>
+                    <h3>Vendas</h3>
+                    <canvas id="salesPieChart" width="400" height="400"></canvas>
+                </div>
+                <div>
+                    <h3>Produção</h3>
+                    <canvas id="productionBarChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <h2>Sobre Nós</h2>
+            <p>Farm Manager é uma solução integrada para gerenciar fornecedores, vendas, produção e relatórios da sua fazenda.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Farm Manager. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

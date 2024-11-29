@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Manager - Relatórios</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f5f5f5;">
+
+    <header style="background-color: #FF9800; color: white; padding: 10px 0;">
+        <nav style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+            <h1 style="margin: 0; font-size: 24px; font-weight: bold; padding-left: 20px;">Farm Manager</h1>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 15px; align-items: center;">
+                <li><a href="home.html" style="color: white; text-decoration: none; font-weight: bold;">Home</a></li>
+                <li><a href="fornecedores.html" style="color: white; text-decoration: none; font-weight: bold;">Painel de Fornecedores</a></li>
+                <li><a href="vendas.html" style="color: white; text-decoration: none; font-weight: bold;">Painel de Vendas</a></li>
+                <li><a href="producao.html" style="color: white; text-decoration: none; font-weight: bold;">Painel de Produção</a></li>
+                <li><a href="relatorios.html" style="color: white; text-decoration: none; font-weight: bold;">Painel de Relatórios</a></li>
+                <li><a href="#" style="color: white; text-decoration: none; font-weight: bold;">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="padding: 20px;">
+        <section>
+            <h2 style="text-align: center; color: #333;">Relatórios de Desempenho</h2>
+            <div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0;">
+                <div>
+                    <h3 style="text-align: center;">Relatório de Vendas (Pizza)</h3>
+                    <canvas id="salesPieChart" style="background-color: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);"></canvas>
+                </div>
+                <div>
+                    <h3 style="text-align: center;">Relatório de Produção (Barra)</h3>
+                    <canvas id="productionBarChart" style="background-color: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="text-align: center; color: #333;">Relatórios Exportáveis</h2>
+            <div style="text-align: center; margin: 20px 0;">
+                <button id="exportExcelButton" style="padding: 10px 20px; margin: 5px; background-color: #f97f24; color: white; border: none; border-radius: 5px; cursor: pointer;">Gerar Relatório em Excel</button>
+                <button id="exportTextButton" style="padding: 10px 20px; margin: 5px; background-color: #f97f24; color: white; border: none; border-radius: 5px; cursor: pointer;">Gerar Relatório em Texto</button>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="text-align: center; color: #333;">Resumo em Tabela</h2>
+            <div style="display: flex; justify-content: center; margin: 20px 0;">
+                <table style="border-collapse: collapse; width: 70%; background-color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); border-radius: 8px; overflow: hidden;">
+                    <thead>
+                        <tr style="background-color: #f97f24; color: white; text-align: left;">
+                            <th style="padding: 10px;">Produto</th>
+                            <th style="padding: 10px;">Meta (Kg)</th>
+                            <th style="padding: 10px;">Produzido (Kg)</th>
+                            <th style="padding: 10px;">Desempenho (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 10px;">Produto A</td>
+                            <td style="padding: 10px;">1000</td>
+                            <td style="padding: 10px;">750</td>
+                            <td style="padding: 10px;">75%</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 10px;">Produto B</td>
+                            <td style="padding: 10px;">500</td>
+                            <td style="padding: 10px;">300</td>
+                            <td style="padding: 10px;">60%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;">Produto C</td>
+                            <td style="padding: 10px;">800</td>
+                            <td style="padding: 10px;">400</td>
+                            <td style="padding: 10px;">50%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background-color: #f97f24; color: white; text-align: center; padding: 10px 0; margin-top: 20px;">
+        <p style="margin: 0;">&copy; 2024 Farm Manager. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

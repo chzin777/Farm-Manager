@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Manager - Produção</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Farm Manager</h1>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="fornecedores.html">Painel de Fornecedores</a></li>
+                <li><a href="vendas.html">Painel de Vendas</a></li>
+                <li><a href="producao.html">Painel de Produção</a></li>
+                <li><a href="relatorios.html">Painel de Relatórios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Itens em Produção</h2>
+            <div id="producaoList">
+                <!-- Exemplo de itens em produção -->
+                <div class="producao-card">
+                    <p><strong>Produto:</strong> Produto A</p>
+                    <p><strong>Meta:</strong> 1000kg</p>
+                    <p><strong>Produzido:</strong> 750kg</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" data-progress="75"></div> <!-- 75% carregado -->
+                    </div>
+                </div>
+            
+                <div class="producao-card">
+                    <p><strong>Produto:</strong> Produto B</p>
+                    <p><strong>Meta:</strong> 500kg</p>
+                    <p><strong>Produzido:</strong> 300kg</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" data-progress="60"></div> <!-- 60% carregado -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Farm Manager. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

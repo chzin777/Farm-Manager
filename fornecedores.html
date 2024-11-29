@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Manager - Fornecedores</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Farm Manager</h1>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="fornecedores.html">Painel de Fornecedores</a></li>
+                <li><a href="vendas.html">Painel de Vendas</a></li>
+                <li><a href="producao.html">Painel de Produção</a></li>
+                <li><a href="relatorios.html">Painel de Relatórios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div id="fornecedoresList" class="fornecedor-cards">
+                <h2 class="title">Fornecedores Ativos</h2>
+                <!-- Fornecedores adicionados serão carregados aqui -->
+            </div>
+        </section>
+
+        <section>
+        </br>
+        </br>
+        </br>
+            <h2>Adicionar Fornecedor</h2>
+            <form onsubmit="addFornecedor(); return false;">
+                <input type="text" id="fornecedorName" placeholder="Nome do Fornecedor">
+                <input type="text" id="fornecedorContact" placeholder="Contato">
+                <input type="text" id="fornecedorProduct" placeholder="Produto">
+                <button type="submit">Adicionar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Farm Manager. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #f97f24;
+    color: #fff;
+    width: 100%;
+    padding: 1rem 2rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 10px 10px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+header ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+header ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Estilo geral para main */
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    color: #f97f24;
+}
+
+/* Inputs e botões */
+input, button, textarea {
+    font-size: 1rem;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0px 0px 6px rgba(249, 127, 36, 0.5);
+    border-color: #f97f24;
+}
+
+button {
+    background-color: #f97f24;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #e6701f;
+    transform: scale(1.05);
+}
+
+/* Estilo para listas de cards */
+section > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+/* Cards gerais */
+.fornecedor-card, .venda-card, .producao-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.fornecedor-card:hover, .venda-card:hover, .producao-card:hover {
+    transform: scale(1.05);
+}
+
+.fornecedor-card img, .producao-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+/* Gráficos */
+.charts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.charts canvas {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Sobre nós */
+.about {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.about p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    background-color: #f97f24;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    border-radius: 10px;
+    width: 100%;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* Remover margens e espaçamento do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimento padrão */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Garante que o conteúdo comece do topo */
+}
+
+/* Corrigir o cabeçalho */
+header {
+    background-color: #f97f24;
+    color: #fff;
+    width: 100%;
+    padding: 1rem 2rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 10px 10px;
+    position: fixed; /* Garante que o cabeçalho fique fixo no topo */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Garante que o cabeçalho fique sobre o conteúdo */
+}
+
+/* Adiciona espaço para evitar sobreposição do cabeçalho */
+main {
+    margin-top: 80px; /* Adiciona espaço para compensar a altura do cabeçalho */
+    width: 90%;
+    max-width: 1200px;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Barra de progresso */
+.progress-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0; /* Cor de fundo (cinza claro) */
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #f97f24; /* Cor laranja para o progresso */
+    width: 0%; /* Início com 0%, será atualizado via JS */
+    transition: width 1s ease-in-out; /* Animação suave */
+}
+
+/* Garante que o corpo ocupe 100% da altura */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* O corpo ocupa toda a altura da tela */
+    margin: 0;
+}
+
+/* Garante que o rodapé fique na parte inferior */
+main {
+    flex: 1; /* Faz o conteúdo principal ocupar o espaço restante */
+    margin-top: 80px;
+    width: 90%;
+    max-width: 1200px;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #f97f24;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto; /* Garante que o rodapé fique no final da tela */
+    width: 100%;
+}

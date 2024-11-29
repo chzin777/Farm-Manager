@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Manager - Vendas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Farm Manager</h1>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="fornecedores.html">Painel de Fornecedores</a></li>
+                <li><a href="vendas.html">Painel de Vendas</a></li>
+                <li><a href="producao.html">Painel de Produção</a></li>
+                <li><a href="relatorios.html">Painel de Relatórios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="charts">
+            <h2>Resumo de Vendas</h2>
+            <div class="chart-container">
+                <div>
+                    <h3>Gráfico de Pizza</h3>
+                    <canvas id="salesPieChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Abrir Nova Venda</h2>
+            <form onsubmit="addVenda(); return false;">
+                <input type="text" id="produto" placeholder="Produto Vendido" required>
+                <input type="number" id="quantidade" placeholder="Quantidade (Kg)" required>
+                <input type="number" id="valor" placeholder="Valor Total (R$)" required>
+                <button type="submit">Adicionar Venda</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Vendas Realizadas</h2>
+            <div id="vendasList" class="venda-cards">
+                <!-- Vendas pré-carregadas -->
+                <div class="venda-card">
+                    <p><strong>Produto:</strong> Produto A</p>
+                    <p><strong>Quantidade:</strong> 50kg</p>
+                    <p><strong>Valor Total:</strong> R$ 500</p>
+                </div>
+                <div class="venda-card">
+                    <p><strong>Produto:</strong> Produto B</p>
+                    <p><strong>Quantidade:</strong> 30kg</p>
+                    <p><strong>Valor Total:</strong> R$ 300</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Farm Manager. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
